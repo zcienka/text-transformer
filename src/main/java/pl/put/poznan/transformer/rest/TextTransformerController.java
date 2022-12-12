@@ -2,7 +2,7 @@ package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.transformer.logic.TextTransformer;
+import pl.put.poznan.transformer.logic.*;
 
 import java.util.Arrays;
 
@@ -22,8 +22,8 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(transforms);
-        return transformer.transform(text);
+        Text newText = new Capitalize(new ToLower(new PlainText(text)));
+        return newText.get();
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -35,8 +35,8 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(transforms);
-        return transformer.transform(text);
+        Text newText = new Capitalize(new ToLower(new PlainText(text)));
+        return newText.get();
     }
 }
 
