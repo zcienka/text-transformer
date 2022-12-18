@@ -1,6 +1,6 @@
 package pl.put.poznan.transformer.logic;
 
-public class Capitalize extends TextTransformer{
+public class Capitalize extends TextTransformer {
 
     public Capitalize(Text newText){
         super(newText);
@@ -10,7 +10,7 @@ public class Capitalize extends TextTransformer{
         return transform(tempText.get());
     }
 
-    private String transform(String text){
+    private String transform(String text) {
         String[] words = text.split("\\s");
         StringBuilder cappedText = new StringBuilder();
 

@@ -1,42 +1,29 @@
 package pl.put.poznan.transformer.rest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.*;
 
-import java.util.Arrays;
-
 
 @RestController
-@RequestMapping("/{text}")
+@RequestMapping("/api")
 public class TextTransformerController {
+    @RequestMapping(value = "/{transformation:.+}", method = RequestMethod.POST)
+    public ResponseEntity<Response> post(@PathVariable String transformation, @RequestBody Request request) {
+        Text newText;
 
-    private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
-
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        Text newText = new Capitalize(new ToLower(new PlainText(text)));
-        return newText.get();
-    }
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        Text newText = new Capitalize(new ToLower(new PlainText(text)));
-        return newText.get();
+        switch (transformation) {
+            case "capitalize":
+                newText = new Capitalize(new ToLower(new PlainText(request.text)));
+                break;
+            case "expand-abbreviation":
+                newText = new ExpandAbbreviations(new PlainText(request.text));
+                break;
+            default:
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(new Response(newText.get()));
     }
 }
 
