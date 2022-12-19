@@ -32,6 +32,9 @@ public class TextTransformerController {
             case "eliminate-duplicates":
                 newText = new DuplicatesElimination(new PlainText(request.text));
                 break;
+            case "words-to-abbreviations":
+                newText = new WordsToAbbreviations(new PlainText(request.text));
+                break;
             default:
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
