@@ -1,5 +1,6 @@
 package pl.put.poznan.transformer.logic;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,17 +13,25 @@ public class ExpandAbbreviations extends TextTransformer {
         super(newText);
     }
 
-    public String get(){
+    public String get() {
         return transform(tempText.get());
     }
 
     private String transform(String text) {
-        if (abbreviationsList.contains(text.toLowerCase())) {
-            int abbreviationIndex = abbreviationsList.indexOf(text.toLowerCase());
-            String word = expandedWords.get(abbreviationIndex);
+        String[] textList = text.split(" ");
+        List<String> transformedList = new ArrayList<>();
 
-            return text.charAt(0) + word.substring(1);
+        for (String word : textList) {
+            if (abbreviationsList.contains(word.toLowerCase())) {
+                int abbreviationIndex = abbreviationsList.indexOf(word.toLowerCase());
+                String expandedWord = expandedWords.get(abbreviationIndex);
+
+                transformedList.add(word.charAt(0) + expandedWord.substring(1));
+            } else {
+                transformedList.add(word);
+            }
+
         }
-        return text;
+        return String.join(" ", transformedList);
     }
 }
