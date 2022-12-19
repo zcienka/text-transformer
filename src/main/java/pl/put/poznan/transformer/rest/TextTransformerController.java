@@ -17,8 +17,17 @@ public class TextTransformerController {
             case "capitalize":
                 newText = new Capitalize(new ToLower(new PlainText(request.text)));
                 break;
+            case "uppercase":
+                newText = new ToUpper(new PlainText(request.text));
+                break;
+            case "lowercase":
+                newText = new ToLower(new PlainText(request.text));
+                break;
             case "expand-abbreviation":
                 newText = new ExpandAbbreviations(new PlainText(request.text));
+                break;
+            case "latex":
+                newText = new LatexFormat(new PlainText(request.text));
                 break;
             default:
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
