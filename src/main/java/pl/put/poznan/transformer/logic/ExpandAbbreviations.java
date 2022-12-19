@@ -4,19 +4,39 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Rozwija wybrane skróty do pełnych postaci.
+ */
 public class ExpandAbbreviations extends TextTransformer {
-    final private List<String> abbreviationsList = Arrays.asList("prof.", "dr", "np.", "itp.", "itd.");
-    final private List<String> expandedWords =
+    /** Lista skrótów podlegających rozwijaniu.
+     */
+	final private List<String> abbreviationsList = Arrays.asList("prof.", "dr", "np.", "itp.", "itd.");
+    /** Lista kolejno rozwiniętych skrótów z listy skrótów.
+     */
+	final private List<String> expandedWords =
             Arrays.asList("profesor", "doktor", "na przykład", "i tym podobne", "i tak dalej");
 
+	/**
+     * Konstruktor dla obiektu dekorującego dany tekst.
+     * @param newText Tekst na którym zostanie wykonana transformacja.
+     */
     public ExpandAbbreviations(Text newText) {
         super(newText);
     }
 
+	/**
+     * Przekazuje odpowiednio zmodyfikowany tekst.
+     * @return Zmodyfikowany tekst.
+     */
     public String get() {
         return transform(tempText.get());
     }
 
+	/**
+     * Wykonuje operacje rozwijania wybranych skrótów do pełnych postaci.
+     * @param text Tekst poddawany transformacji.
+     * @return Tekst po wykonaniu transfomacji.
+     */
     private String transform(String text) {
         String[] textList = text.split(" ");
         List<String> transformedList = new ArrayList<>();
