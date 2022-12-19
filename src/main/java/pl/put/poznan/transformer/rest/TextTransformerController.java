@@ -32,6 +32,9 @@ public class TextTransformerController {
             case "eliminate-duplicates":
                 newText = new DuplicatesElimination(new PlainText(request.text));
                 break;
+            case "inverse":
+                newText = new Inverse(new PlainText(request.text));
+                break;
             default:
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
