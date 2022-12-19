@@ -29,6 +29,9 @@ public class TextTransformerController {
             case "latex":
                 newText = new LatexFormat(new PlainText(request.text));
                 break;
+            case "eliminate-duplicates":
+                newText = new DuplicatesElimination(new PlainText(request.text));
+                break;
             default:
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
