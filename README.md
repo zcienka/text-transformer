@@ -1,5 +1,9 @@
 # Text transformer
 A simple Java app with REST API in Spring with React as an user interface that enables text conversion written for our Software Engineering class.
+
+
+![Screenshot 1](./screenshots/ss1.png)
+
 # Project description
 App enables user to:
 * **change the case of letters**
