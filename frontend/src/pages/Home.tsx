@@ -39,7 +39,7 @@ const Home: React.FC = () => {
         }
     }, [isTextSuccess, result])
 
-    return <div className={"bg-zinc-100 flex items-center justify-center h-screen flex-col"}>
+    return <div className={"bg-zinc-50 flex items-center justify-center h-screen flex-col"}>
         <div className={"border border-stone-200 p-10 rounded-3xl bg-white"}>
             <h1 className={"md:text-5xl font-bold pb-6 text-3xl flex justify-center"}>Text transformer</h1>
 
