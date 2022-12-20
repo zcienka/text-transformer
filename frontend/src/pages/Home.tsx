@@ -39,7 +39,7 @@ const Home: React.FC = () => {
         }
     }, [isTextSuccess, result])
 
-    return <div className={"bg-zinc-50 flex items-center justify-center h-screen flex-col"}>
+    return <div className={"bg-blue-50 flex items-center justify-center h-screen flex-col"}>
         <div className={"border border-stone-200 p-10 rounded-3xl bg-white"}>
             <h1 className={"md:text-5xl font-bold pb-6 text-3xl flex justify-center"}>Text transformer</h1>
 
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
                 <div className={"md:w-96 w-64"}>
                     <h2 className={"md:text-xl text-lg pb-2"}>Transformation</h2>
                 </div>
-                <select className={"px-5 md:w-96 w-64 border-2 border-zinc-300 py-3 rounded-3xl text-lg bg-white h-14"}
+                <select className={"px-5 md:w-96 w-64 border border-zinc-300 py-3 rounded-3xl text-lg bg-white h-14 text-lg"}
                         onChange={(e) => setTransformation(e.target.value)}>
                     <option className={"px-8"} value={"capitalize"}>
                         Capitalization
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
             </div>
 
             <div className={"md:w-96 w-64"}>
-                <h2 className={"md:text-xl text-lg pb-2"}>Text</h2>
+                <h2 className={"md:text-xl text-lg pb-2 "}>Text</h2>
             </div>
             <div className={"flex flex-row-reverse relative md:w-96 w-64 h-14"}>
                 <button className={"absolute w-12 h-12 top-1 pr-2"} onClick={() => sendRequest()}>
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                 </button>
 
                 <input
-                    className={`w-full py-3 px-6 rounded-3xl border-2 pr-16 justify-center text-lg  ${textLengthError || textEmptyError ? "border-red-700" : "border-zinc-300"}`}
+                    className={`w-full py-3 px-6 rounded-3xl border pr-16 justify-center text-lg  ${textLengthError || textEmptyError ? "border-red-700" : "border-zinc-300"}`}
                     onChange={(e) => {
                         setText(e.target.value)
                         setTextLengthError(false)
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
             <div className={"md:w-96 w-64"}>
                 <h2 className={"md:text-xl text-lg pb-2"}>Transformed text</h2>
             </div>
-            <p className={`max-w-64 md:max-w-96 md:w-96 w-64 break-words py-3 px-6 border-2 border-zinc-300 rounded-3xl text-lg  
+            <p className={`max-w-64 md:max-w-96 md:w-96 w-64 break-words py-3 px-6 border border-zinc-300 rounded-3xl text-lg
             ${transformedText === "" ? "h-14" : "min-h-14"}`}>
                 {transformedText}
             </p>
