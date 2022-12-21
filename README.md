@@ -1,5 +1,5 @@
 # Text transformer
-A simple Java app with REST API in Spring with React as an user interface that enables text conversion written for our Software Engineering class.
+A simple Java app written for our Software Engineering class with REST API in Spring and React as an user interface that enables text conversion.
 
 
 ![Screenshot 1](./screenshots/ss1.png)
