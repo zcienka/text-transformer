@@ -14,6 +14,9 @@ App enables user to:
 * **convert text to a format supported by Latex** (John Smith & Sons -> John Smith \& Sons)
 * **eliminate duplicates** (Wyślij do do mnie wiadomość -> Wyślij do mnie wiadomość)
 
+# UML diagram
+![Screenshot 1](./screenshots/UML.png)
+
 # [Kanban board](https://trello.com/invite/b/6zMiAxyU/ATTI4f0ef2c1dc51eafee0a8b4aa80df0d9a887827AC/kanban-board)
 
 # [Javadoc](https://zcienka.github.io/text-transformer/javadoc/)
