@@ -17,6 +17,6 @@ App enables user to:
 # UML diagram
 ![Screenshot 1](./screenshots/UML.png)
 
-# [Kanban board](https://trello.com/invite/b/6zMiAxyU/ATTI4f0ef2c1dc51eafee0a8b4aa80df0d9a887827AC/kanban-board)
+# [Kanban board](https://trello.com/invite/b/6zMiAxyU/ATTIe880a0ba9e6d953d15d42cee69311d690AA3C0B2/kanban-board)
 
 # [Javadoc](https://zcienka.github.io/text-transformer/javadoc/)
