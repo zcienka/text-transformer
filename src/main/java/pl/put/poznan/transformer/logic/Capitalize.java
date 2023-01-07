@@ -7,6 +7,7 @@ public class Capitalize extends TextTransformer {
 
     /**
      * Konstruktor dla obiektu dekorującego dany tekst.
+     *
      * @param newText Tekst na którym zostanie wykonana transformacja.
      */
     public Capitalize(Text newText) {
@@ -15,6 +16,7 @@ public class Capitalize extends TextTransformer {
 
     /**
      * Przekazuje odpowiednio zmodyfikowany tekst.
+     *
      * @return Zmodyfikowany tekst.
      */
     public String get() {
@@ -23,19 +25,30 @@ public class Capitalize extends TextTransformer {
 
     /**
      * Wykonuje operacje zmiany pierwszej litery poszczególnych wyrazów na wielką.
+     *
      * @param text Tekst poddawany transformacji.
      * @return Tekst po wykonaniu transfomacji.
      */
     private String transform(String text) {
-        String[] words = text.trim().split("\\s");
-        StringBuilder cappedText = new StringBuilder();
+        if (text.length() > 0) {
+            if (text.trim().length() == 0) {
+                return text;
+            }
+            String[] words = text.trim().split("\\s");
 
-        for (String word : words) {
-            char capLetter = Character.toUpperCase(word.charAt(0));
+            StringBuilder cappedText = new StringBuilder();
 
-            cappedText.append(" ").append(capLetter).append(word.substring(1));
+            for (String word : words) {
+                char capLetter = Character.toUpperCase(word.charAt(0));
 
+                cappedText.append(" ").append(capLetter).append(word.substring(1));
+
+            }
+
+
+            return cappedText.toString().trim();
+        } else {
+            return text;
         }
-        return cappedText.toString().trim();
     }
 }
