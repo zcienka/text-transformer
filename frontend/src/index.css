@@ -7,7 +7,7 @@
         font-family: "Helvetica Neue", system-ui, sans-serif;
         @apply text-slate-800;
     }
-
-
-
+    input{
+        @apply mr-2;
+    }
 }
