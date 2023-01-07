@@ -11,6 +11,7 @@ import java.util.Objects;
 public class DuplicatesElimination extends TextTransformer {
     /**
      * Konstruktor dla obiektu dekorującego dany tekst.
+     *
      * @param newText Tekst na którym zostanie wykonana transformacja.
      */
     public DuplicatesElimination(Text newText) {
@@ -19,6 +20,7 @@ public class DuplicatesElimination extends TextTransformer {
 
     /**
      * Przekazuje odpowiednio zmodyfikowany tekst.
+     *
      * @return Zmodyfikowany tekst.
      */
     public String get() {
@@ -27,10 +29,15 @@ public class DuplicatesElimination extends TextTransformer {
 
     /**
      * Wykonuje operacje usunięcia powtarzających się po sobie słów.
+     *
      * @param text Tekst poddawany transformacji.
      * @return Tekst po wykonaniu transfomacji.
      */
     private String transform(String text) {
+        if (text.split(" ").length == 0) {
+            return text;
+        }
+
         List<String> textList = Arrays.asList(text.split(" "));
         List<String> eliminatedDuplicates = new java.util.ArrayList<>();
         eliminatedDuplicates.add(textList.get(0));
