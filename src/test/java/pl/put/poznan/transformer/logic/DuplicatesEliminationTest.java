@@ -49,4 +49,18 @@ class DuplicatesEliminationTest {
         Text newText = new DuplicatesElimination(textTransformerMock);
         assertEquals("", newText.get());
     }
+
+    @Test
+    void testNoDuplication() {
+        when(textTransformerMock.get()).thenReturn("Tu nie ma takich samych slow");
+        Text newText = new DuplicatesElimination(textTransformerMock);
+        assertEquals("Tu nie ma takich samych slow", newText.get());
+    }
+
+    @Test
+    void testLowerUpercase() {
+        when(textTransformerMock.get()).thenReturn("do Do");
+        Text newText = new DuplicatesElimination(textTransformerMock);
+        assertEquals("do Do", newText.get());
+    }
 }

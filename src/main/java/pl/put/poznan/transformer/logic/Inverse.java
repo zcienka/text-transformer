@@ -32,12 +32,15 @@ public class Inverse extends TextTransformer{
 
         StringBuilder outputText = new StringBuilder();
         for(int i=0; i<text.length(); i++){
-            boolean inputIsCapital = Character.isUpperCase(text.charAt(i));
-            if(inputIsCapital){
-                outputText.append(Character.toUpperCase(inversedText.charAt(i)));
-            }
-            else{
-                outputText.append(Character.toLowerCase(inversedText.charAt(i)));
+            if (Character.isLetter(text.charAt(i))) {
+                boolean inputIsCapital = Character.isUpperCase(text.charAt(i));
+                if (inputIsCapital) {
+                    outputText.append(Character.toUpperCase(inversedText.charAt(i)));
+                } else {
+                    outputText.append(Character.toLowerCase(inversedText.charAt(i)));
+                }
+            } else {
+                outputText.append(inversedText.charAt(i));
             }
         }
         return outputText.toString();

@@ -30,6 +30,7 @@ public class Capitalize extends TextTransformer {
      * @return Tekst po wykonaniu transfomacji.
      */
     private String transform(String text) {
+        text = text.toLowerCase();
         if (text.length() > 0) {
             if (text.trim().length() == 0) {
                 return text;
